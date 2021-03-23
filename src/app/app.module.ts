@@ -9,6 +9,7 @@ import { BrandComponent } from './component/brand/brand.component';
 import { ColorComponent } from './component/color/color.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { NaviComponent } from './component/navi/navi.component';
+import { CartSummaryComponent } from './component/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NaviComponent } from './component/navi/navi.component';
     BrandComponent,
     ColorComponent,
     CustomerComponent,
-    NaviComponent
+    NaviComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,

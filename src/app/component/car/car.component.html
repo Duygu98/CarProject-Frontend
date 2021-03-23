@@ -9,6 +9,7 @@
             <th>Rengi</th>
             <th>Yılı</th>
             <th>Günlük Ücreti</th>
+            <th>Açıklaması</th>
         </tr>
     </thead>
     <tr *ngFor="let car of cars">
@@ -17,6 +18,6 @@
         <td>{{car.colorName}}</td>
         <td>{{car.modelYear}}</td>
         <td>{{car.dailyPrice}}</td>
-        <td>{{car.description}}</td>
+        <td>{{car.descriptions}}</td>
     </tr>
 </table>
