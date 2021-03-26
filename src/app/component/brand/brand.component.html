@@ -1,14 +1,40 @@
+<ul  class="list-group " >
+  <li [class]="getAllBrandClass()" routerLink="/cars" ><b>Tüm Özellikler </b></li>
+  </ul>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <b> Araba Markaları</b> 
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <ul  class="list-group list-group-flush">
+          <li 
+            (click)="setCurrentBrand(brand)"
+            *ngFor="let brand of brands"
+            routerLink="/cars/brands/{{brand.brandId}}"
+            [class]="getCurrentBrandClass(brand)">{{brand.brandName}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
 <ul  class="list-group" >
   <li [class]="getAllBrandClass()" routerLink="/cars" >Tüm Özellikler</li>
   <li class="list-group-item list-group-item-secondary"> Araba Markaları</li>
   </ul>
 <ul class="list-group" >
-    <li class="list-group-item"
+  <li 
     (click)="setCurrentBrand(brand)"
     *ngFor="let brand of brands"
     routerLink="/cars/brands/{{brand.brandId}}"
-    [class]="getCurrentBrandClass(brand)"
-    >{{brand.brandName}}
+    [class]="getCurrentBrandClass(brand)">{{brand.brandName}}
   </li>
+</ul> -->
 
-</ul>

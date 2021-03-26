@@ -36,10 +36,10 @@ export class BrandComponent implements OnInit {
 
    getAllBrandClass(){
      if (!this.currentBrand) {
-      return "list-group-item active" 
+      return "list-group-item acticve" 
      }
      else{
-      return "list-group-item"
+      return "list-group-item "
     }
    }
 }
