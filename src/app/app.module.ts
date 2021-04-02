@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -9,9 +10,11 @@ import { BrandComponent } from './component/brand/brand.component';
 import { ColorComponent } from './component/color/color.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { NaviComponent } from './component/navi/navi.component';
-import { CarDetailComponent } from './component/car-detail/car-detail.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
-import { FilterPipe } from './pipes/filter.pipe';
+import { CarDetailComponent } from './component/car/car-detail/car-detail.component';
+import { FilterBrandPipe } from './pipes/filter-brand.pipe';
+import { FilterComponent } from './component/filter/filter.component';
+import { FilterColorPipe } from './pipes/filter-color.pipe';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,18 @@ import { FilterPipe } from './pipes/filter.pipe';
     ColorComponent,
     CustomerComponent,
     NaviComponent,
-    CarDetailComponent,
     VatAddedPipe,
-    FilterPipe
+    CarDetailComponent,
+    FilterBrandPipe,
+    FilterComponent,
+    FilterColorPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

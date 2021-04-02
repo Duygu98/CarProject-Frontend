@@ -1,4 +1,4 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+<!-- <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
 <table *ngIf="dataLoaded==true"  class="table">
@@ -15,16 +15,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let car of cars">
-            <th scope="row">{{car.id}}</th>
-              <td>{{car.brandName}}</td>
-              <td>{{car.colorName}}</td>
-              <td>{{car.modelYear}}</td>
-              <td>{{car.dailyPrice}}</td>
-              <td>{{car.descriptions}}</td>
+        <tr *ngFor="let carDetail of carsDetail">
+            <th scope="row">{{carDetail.carId}}</th>
+              <td>{{carDetail.brandName}}</td>
+              <td>{{carDetail.colorName}}</td>
+              <td>{{carDetail.modelYear}}</td>
+              <td>{{carDetail.dailyPrice}}</td>
+              <td>{{carDetail.descriptions}}</td>
               <td class="d-grid gap-2">
-                  <button (click)="setCurrentCar(car)" 
-                          routerLink="/cars/details/{{ car.id }}" 
+                  <button (click)="setCurrentCar(carDetail)" 
                           type="button" 
                           class="btn btn-dark">
                            Detay 
@@ -32,4 +31,43 @@
             </td>
           </tr>
     </tbody>
-</table>
+</table>  -->
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded "  *ngFor="let carDetail of carsDetail">
+    <div class="card border-0 mb-3" style="width: 16rem;">
+      <img src="https://localhost:44304/{{carDetail.carImages[0].imagePath}}" style="width: 250px; height:180px;"  class="img-thumbnail" alt="...">
+      <div class="card-body text-center">
+        <h4>
+          <a  class="card-title text-decoration-none h5" style="color:#007bff;">{{carDetail.carName}} </a>
+        </h4>
+      </div>
+      <ul class="list-group list-group-flush" > 
+        <li class="list-group-item">
+          <span class="float-start">Rengi : </span>
+          <span class="float-end">{{carDetail.colorName}}</span>
+        </li> 
+        <li class="list-group-item">
+          <span class="float-start">Modeli :  </span>
+          <span class="float-end">{{carDetail.modelYear}}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Günlük Ücreti : </span>
+          <span class="float-end">{{carDetail.dailyPrice}}</span>
+        </li> 
+        <li class="list-group-item">
+          <span class="float-start">Açıklaması :  </span>
+          <span class="float-end">{{carDetail.descriptions}}</span>
+        </li>
+    
+      </ul>
+      <div class="card-body">
+        <div class="d-flex action justify-content-between">
+          <a href="" class="btn btn-secondary ">Şimdi Kirala</a>
+          <a routerLink="/cars/cardetails/{{carDetail.carId}}"  class="btn btn-dark ">Detaylar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+    
