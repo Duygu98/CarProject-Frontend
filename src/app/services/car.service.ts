@@ -30,7 +30,10 @@ export class CarService {
     let newPath=this.url+"cars/getcardetail";
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
   }
-
+  getCarDetailsByCarId(carId:number):Observable<ListResponseModel<CarDetail>>{
+    let newPath = this.url + "cars/getcardetailbycarid?carId=" + carId;
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
   getCarDetails(carId: number): Observable<SingleResponseModel<CarDetail>> {
     let newPath = this.url + "cars/getcardetailbycarid?carId=" + carId;
     return this.httpClient.get<SingleResponseModel<CarDetail>>(newPath);

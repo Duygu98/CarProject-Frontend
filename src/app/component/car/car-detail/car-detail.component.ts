@@ -17,10 +17,10 @@ export class CarDetailComponent implements OnInit {
   carImages:CarImage[]=[];
   currentImage:CarImage;
   imageBasePath=environment.imageUrl;
-  slideConfig={"slidesToShow": 1, "slidesToScroll": 1,"autoplay":true,"autoplaySpeed":1500, "adaptiveHeight": true,"arrows":true};
-
+ 
   constructor(private carService:CarService,
               private carImageService:CartImagesService,
+              private toastrService:ToastrService,
               private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,6 +28,8 @@ export class CarDetailComponent implements OnInit {
       if(params["carId"]){
         this.getCarDetailsByCarId(params["carId"]);
         this.getCarImages(params["carId"]);
+    
+
       }
     })
   }
@@ -35,7 +37,6 @@ export class CarDetailComponent implements OnInit {
     this.carService.getCarDetails(carId).subscribe((response) => {
       this.carDetail = response.data[0];
     });
-
   }
   getCarImages(carId:number){
     this.carImageService.getCarImagesByCarId(carId).subscribe((response)=>{
@@ -56,5 +57,7 @@ export class CarDetailComponent implements OnInit {
       return ""
     }
   }
-  
+  rentOnClick(){
+    this.toastrService.info("Lütfen müşteri ve tarih seçin");
+  }
 }

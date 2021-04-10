@@ -1,45 +1,57 @@
-<h3 class="d-flex justify-content-center">Araç Detayları</h3>
+<div class="card mb-3"> 
+    <div class="card-body">
+        <h5 class="d-flex justify-content-center">ARAÇ DETAYLARI</h5>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+        
+                </div>
+                <div class="carousel-inner">
+                    <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
+                        <img src="https://localhost:44304/{{image.imagePath}}"class="rounded mx-auto d-block" style="width:600px ; height: 370px;"
+                            alt="Image">
+                    </div>
+                </div>
+                <br>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-     
-    </div>
-    <div class="carousel-inner">
-      <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
-        <img src="https://localhost:44304/{{image.imagePath}}" class="d-block w-100" style="height: 480px;" alt="Image">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div class="table-responsive-md">
-    <table class="table table-striped table-hover table-bordered">
-      <thead>
-          <tr>
-              <th>Brand</th>
-              <th>Color</th>
-              <th>Model Year</th>
-              <th>Daily Price</th>
-              <th>Description</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>{{carDetail.brandName}}</td>
-              <td>{{carDetail.colorName}}</td>
-              <td>{{carDetail.modelYear}}</td>
-              <td>{{carDetail.dailyPrice}}</td>
-              <td>{{carDetail.descriptions}}</td>
-          </tr>
 
-      </tbody>
-    </table>
-  </div>
+        <div class="table-responsive-md">
+            <table class="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th>#</th>
+                        <th>Marka</th>
+                        <th>Renk</th>
+                        <th>Model Yılı</th>
+                        <th>Günlük Ücreti</th>
+                        <th>Açıklaması</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-light">
+                        <td>1</td>
+                        <td>{{carDetail.brandName}}</td>
+                        <td>{{carDetail.colorName}}</td>
+                        <td>{{carDetail.modelYear}}</td>
+                        <td>{{carDetail.dailyPrice}}</td>
+                        <td>{{carDetail.descriptions}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <app-rental [car]="carDetail"></app-rental>
     <br>
-<hr>
+    <br>
+</div>

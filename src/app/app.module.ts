@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms"
+import{ToastrModule} from "ngx-toastr";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +17,9 @@ import { CarDetailComponent } from './component/car/car-detail/car-detail.compon
 import { FilterBrandPipe } from './pipes/filter-brand.pipe';
 import { FilterComponent } from './component/filter/filter.component';
 import { FilterColorPipe } from './pipes/filter-color.pipe';
+import { RentalComponent } from './component/rental/rental.component';
+import { DatePipe } from '@angular/common';
+import { PaymentComponent } from './component/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -28,16 +33,22 @@ import { FilterColorPipe } from './pipes/filter-color.pipe';
     CarDetailComponent,
     FilterBrandPipe,
     FilterComponent,
-    FilterColorPipe
+    FilterColorPipe,
+    RentalComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
